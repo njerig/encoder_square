@@ -11,8 +11,8 @@ const int ENC_RIGHT_PIN[] = { 26, 27 };
 Encoder encLeft(ENC_LEFT_PIN[0], ENC_LEFT_PIN[1]);
 Encoder encRight(ENC_RIGHT_PIN[0], ENC_RIGHT_PIN[1]);
 
-long positionLeft = 0;
-long positionRight = 0;
+long oldPositionLeft = 0;
+long oldPositionRight = 0;
 long newPositionLeft;
 long newPositionRight;
 
@@ -24,7 +24,7 @@ void setup() {
   pinMode(DIR_LEFT_PIN, OUTPUT);
   pinMode(POWER_RIGHT_PIN, OUTPUT);
   pinMode(DIR_RIGHT_PIN, OUTPUT);
-  Serial.println("do the thing");
+  Serial.println("Do The Thing:");
 }
 
 int printEncoderPosition(int powerLeft, int dirLeft, int powerRight, int dirRight) {
@@ -35,21 +35,20 @@ int printEncoderPosition(int powerLeft, int dirLeft, int powerRight, int dirRigh
   
   newPositionLeft = encLeft.read();
   newPositionRight = encRight.read();
-  if (newPositionLeft != positionLeft || newPositionRight != positionRight) {
+  if (newPositionLeft != oldPositionLeft || newPositionRight != oldPositionRight) {
     Serial.print("Left = ");
     Serial.print(newPositionLeft);
     Serial.print(", Right = ");
     Serial.print(newPositionRight);
     Serial.println();
-    positionLeft = newPositionLeft;
-    positionRight = newPositionRight;
+    oldPositionLeft = newPositionLeft;
+    oldPositionRight = newPositionRight;
   }
   delay(1000);
   return 0;
 }
 
 void loop() {
-  printEncoderPosition(120, 255, 120, 255);
-  delay(1000000000000);
+  printEncoderPosition(80, 255, 80, 255);
 }
 
