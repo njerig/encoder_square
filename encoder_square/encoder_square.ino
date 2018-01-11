@@ -1,12 +1,12 @@
 #include <Encoder.h>
 
-const int POWER_LEFT_PIN = 9;
-const int DIR_LEFT_PIN = 10;
-const int POWER_RIGHT_PIN = 7;
-const int DIR_RIGHT_PIN = 8;
+const int POWER_RIGHT_PIN = 9;
+const int DIR_RIGHT_PIN = 10;
+const int POWER_LEFT_PIN = 7;
+const int DIR_LEFT_PIN = 8;
 
-const int ENC_LEFT_PIN[] = { 24, 25 };
-const int ENC_RIGHT_PIN[] = { 26, 27 };
+const int ENC_RIGHT_PIN[] = { 24, 25 };
+const int ENC_LEFT_PIN[] = { 26, 27 };
 
 Encoder encLeft(ENC_LEFT_PIN[0], ENC_LEFT_PIN[1]);
 Encoder encRight(ENC_RIGHT_PIN[0], ENC_RIGHT_PIN[1]);
